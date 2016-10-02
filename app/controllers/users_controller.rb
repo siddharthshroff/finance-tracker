@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   def my_portfolio
-    @user_stocks = current_user.user_stocks
+    @user_stocks = current_user.stocks
     @user = current_user
   end
   
@@ -30,4 +30,10 @@ class UsersController < ApplicationController
       redirect_to my_friends_path, flash[:error] = "There was an error with adding the friend"    
     end
   end
+  
+  def show
+    @user = User.find(params[:id])
+    @user_stocks = @user.stocks
+  end
+  
 end
