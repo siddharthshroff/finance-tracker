@@ -15,6 +15,15 @@ class Stock < ActiveRecord::Base
     new_stock
   end
   
+  def self.get_all_info(ticker_symbol)
+    stock_all_info = StockQuote::Stock.json_quote(ticker_symbol)
+    if stock_all_info
+      return stock_all_info
+    else
+      return nil
+    end
+  end
+  
   def price
     closing_price = StockQuote::Stock.quote(ticker).close
     return "#{closing_price} (Closing)" if closing_price

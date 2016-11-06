@@ -1,4 +1,9 @@
 class StocksController < ApplicationController
+  def show
+    @stock = Stock.find(params[:id])
+    @stock_all_info = Stock.get_all_info(@stock.ticker) if @stock
+  end
+  
   
   def search
     if params[:stock]

@@ -1,0 +1,11 @@
+<%= render 'lookup' %>
+
+<% @stock_all_info.each do |top, bottom| %>
+  <dl>
+    <dt>Stock Info</dt>
+    <% bottom.each do |key, value| %>
+      <dd><%= "#{key}: #{value}" %></dd>
+    <% end %>
+  </dl>
+<% end %>
+  

@@ -12,7 +12,7 @@
   <tbody>
     <% @user_stocks.each do |user_stock| %>
     <tr>
-      <td><%= user_stock.name %></td>
+      <td><%= link_to user_stock.name, stock_path(user_stock) %></td>
       <td><%= user_stock.ticker %></td>
       <td><%= user_stock.price %></td>
       <% if @user.id == current_user.id %>
